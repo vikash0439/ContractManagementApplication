@@ -11,7 +11,6 @@ import com.contract.system.repository.RoleRepository;
 import com.contract.system.repository.UserRepository;
 
 
-
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired

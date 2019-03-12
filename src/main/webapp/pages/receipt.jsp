@@ -45,7 +45,7 @@
         <a class="navbar-brand brand-logo" href="index.html">
           <img src="images/logo.svg" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <a class="navbar-brand brand-logo-mini" href="welcome">
           <img src="images/logo-mini.svg" alt="logo" />
         </a>
       </div>
@@ -321,7 +321,7 @@
                   <p class="card-description">
                     Basic form elements
                   </p>
-                  <form class="forms-sample">
+                  <form class="forms-sample" action="">
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
                       <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">

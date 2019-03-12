@@ -23,8 +23,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+
     
 </head>
 <body>
@@ -42,7 +41,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="">
           <img src="images/logo.svg" alt="logo" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -178,7 +177,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text">Hello, SRCPA !</span>
               <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -231,9 +230,15 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="welcome">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/tables/basic-table.html">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Booking</span>
             </a>
           </li>
           <li class="nav-item">
@@ -249,7 +254,7 @@
                   <a class="nav-link" href="receipt">Receipt</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Invoice</a>
+                  <a class="nav-link" href="invoice">Invoice</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/ui-features/typography.html">Tax</a>
@@ -257,43 +262,47 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">Form elements</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Charts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <i class="menu-icon mdi mdi-table"></i>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="pages/icons/font-awesome.html">
               <i class="menu-icon mdi mdi-sticker"></i>
-              <span class="menu-title">Icons</span>
+              <span class="menu-title">Customer</span>
             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#utility-pages" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-bookmark-plus-outline"></i>
+              <span class="menu-title">Utility</span>
+              <i class="menu-arrow"></i>
+            </a>
+           
+            <div class="collapse" id="utility-pages">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="service">Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="slot">Slot</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="venue">Venue</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="menu-icon mdi mdi-restart"></i>
-              <span class="menu-title">User Pages</span>
+              <span class="menu-title">Miscellanous</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                  <a class="nav-link" href="pages/samples/blank-page.html"> User </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                  <a class="nav-link" href="pages/samples/login.html"> State Code </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/samples/register.html"> Register </a>
@@ -306,6 +315,13 @@
                 </li>
               </ul>
             </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Reports</span>
+            </a>
           </li>
         </ul>
       </nav>

@@ -8,29 +8,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.contract.system.model.Service;
 import com.contract.system.model.User;
 import com.contract.system.service.SecurityService;
+import com.contract.system.service.ServiceService;
 import com.contract.system.service.UserService;
 import com.contract.system.validator.UserValidator;
 
-
-
-
-
 @Controller
-public class MainController {
+public class MainController{
 	
     @Autowired
-    private UserService userService;
-    
-
+    private UserService userService;    
+    @Autowired
+    private ServiceService serviceService;
     @Autowired
     private SecurityService securityService;
-
     @Autowired
     private UserValidator userValidator;
-    
-
     
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -76,11 +71,56 @@ public class MainController {
         return "redirect:/welcome";
     }
     
-    /* Receipt */
-    @RequestMapping("/receipt")
+    /* Receipt Controller*/
+    @RequestMapping(value = "/receipt", method = RequestMethod.GET)
     public String receipt(BindingResult bindingResult, Model model) {
+    	  
+        return "receipt";
+    }
+    
+    
+    
+    
+    
+    /* Invoice Controller */
+    @RequestMapping(value = "/invoice", method = RequestMethod.GET)
+    public String invoice( Model model) {
+     
+        return "invoice";
+    }
+    
+    
+    /* Invoice Controller */
+    @RequestMapping(value = "/service", method = RequestMethod.GET)
+    public String service( Model model) {
+    	   
+        return "service";
+    }
+    
+    @RequestMapping(value = "/saveService", method = RequestMethod.GET)
+    public String saveService( Model model, @ModelAttribute("serviceForm") Service service) {
+    	
+    serviceService.save(service);
+        return "service";
+    }
+    
+    
+    
+    /* Invoice Controller */
+    @RequestMapping(value = "/venue", method = RequestMethod.GET)
+    public String venue( Model model) {
     	
     
-        return "redirect:/receipt";
+        return "venue";
+    }
+    
+    
+    
+    /* Invoice Controller */
+    @RequestMapping("/slot")
+    public String slot() {
+    	
+    
+        return "slot";
     }
 }
