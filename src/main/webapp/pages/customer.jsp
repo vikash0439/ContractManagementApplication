@@ -312,45 +312,99 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-         
+         <div class="row">
+            <div class="col-lg-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <center><h4 class="card-title">Customer</h4></center>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>
+                            Customer Name
+                          </th>
+                          <th>
+                            Address
+                          </th>
+                          <th>
+                            Contact No.
+                          </th>
+                          <th>
+                            Website
+                          </th>
+                          <th>
+                            State code
+                          </th>
+                          <th>
+                            GST NO.
+                          </th>
+                          <th>
+                            Category
+                          </th>
+                        </tr>
+                      </thead>
+                      <c:forEach var="c" items="${allcustomer }">
+                      <tbody>
+                        <tr>
+                          <td class="font-weight-medium">${c.customerid }</td>
+                          <td>${c.customername }</td>
+                          <td>${c.landline }</td>
+                          <td>${c.website}</td>
+                          <td>${c.statecode }</td>
+                          <td>${c.gstno }</td>
+                          <td>${c.category }</td>
+                          <td>${c.remark }</td>
+                        </tr>
+                        
+                      </tbody>
+                      </c:forEach>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row">
            <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic form</h4>
-                  <p class="card-description">
-                    Basic form elements
-                  </p>
-                  <form class="forms-sample" action="">
+                  <h4 class="card-title">Add Customer</h4>
+                  <form class="forms-sample" action="saveCustomer" modelAttribute="customerForm">
                     <div class="form-group">
-                      <label for="exampleInputName1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                      <label for="exampleInputName1">Customer Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="customername" placeholder="Customer Name">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail3">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                      <label for="exampleInputName1">Address</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="address" placeholder="Address">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                      <label for="exampleInputName1">Contact No.</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="landline" placeholder="Landline">
                     </div>
-                    <div class="form-group">
-                      <label>File upload</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                        </span>
-                      </div>
+                     <div class="form-group">
+                      <label for="exampleInputName1">Website</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="website" placeholder="www...">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputCity1">City</label>
-                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+                     <div class="form-group">
+                      <label for="exampleInputName1">State Code</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="statecode" placeholder="State Code">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleTextarea1">Textarea</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+                     <div class="form-group">
+                      <label for="exampleInputName1">GST No.</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="gstno" placeholder="GST">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleInputName1">Cateogry</label>
+                      <input type="text" class="form-control" id="exampleInputName1" name="category" placeholder="A/B/C/D">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleTextarea1">Remark</label>
+                      <textarea class="form-control" id="exampleTextarea1" name="remark" rows="2"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
@@ -360,6 +414,36 @@
             </div>
             
           </div>
+          
+           <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Information</h4>
+                  <p class="card-description">
+                    Use class
+                    <code>.text-primary</code>,
+                    <code>.text-secondary</code> etc. for text in theme colors
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="text-primary">.text-primary</p>
+                      <p class="text-success">.text-success</p>
+                      <p class="text-danger">.text-danger</p>
+                      <p class="text-warning">.text-warning</p>
+                      <p class="text-info">.text-info</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="text-light bg-dark pl-1">.text-light</p>
+                      <p class="text-secondary">.text-secondary</p>
+                      <p class="text-dark">.text-dark</p>
+                      <p class="text-muted">.text-muted</p>
+                      <p class="text-white bg-dark pl-1">.text-white</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
          
         </div>
         <!-- content-wrapper ends -->

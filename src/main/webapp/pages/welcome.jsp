@@ -221,11 +221,8 @@
         <ul class="nav">
           <li class="nav-item nav-profile">
             <div class="nav-link">
-              <div class="user-wrapper">
-               
-              </div>
-              <button class="btn btn-success btn-block">New Contract
-                <i class="mdi mdi-plus"></i>
+              <button class="btn btn-success btn-block"><a style="color: white;" href="contract">New Contract
+                <i class="mdi mdi-plus"></i></a>
               </button>
             </div>
           </li>
@@ -236,7 +233,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="booking">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Booking</span>
             </a>
@@ -257,14 +254,14 @@
                   <a class="nav-link" href="invoice">Invoice</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Tax</a>
+                  <a class="nav-link" href="tax">Tax</a>
                 </li>
               </ul>
             </div>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/font-awesome.html">
+            <a class="nav-link" href="customer">
               <i class="menu-icon mdi mdi-sticker"></i>
               <span class="menu-title">Customer</span>
             </a>
@@ -340,7 +337,7 @@
                     <div class="float-right">
                       <p class="mb-0 text-right">Total Revenue</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                        <h3 class="font-weight-medium text-right mb-0">Rs. 65,650</h3>
                       </div>
                     </div>
                   </div>

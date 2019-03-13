@@ -2,51 +2,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <meta charset="utf-8">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
+  <title>Star Admin Free Bootstrap-4 Admin Dashboard Template</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../../vendors/icheck/skins/all.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
-    
 </head>
-<body>
-<div class="container">
 
-    <c:if test="${pageContext.request.userPrincipal.name != null}">
-        <form id="logoutForm" method="POST" action="${contextPath}/logout">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-        <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-    </c:if>
-</div>
-<!-- /container -->
-<div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
-          <img src="images/logo.svg" alt="logo" />
+        <a class="navbar-brand brand-logo" href="../../index.html">
+          <img src="../../images/logo.svg" alt="logo" />
         </a>
-        <a class="navbar-brand brand-logo-mini" href="welcome">
-          <img src="images/logo-mini.svg" alt="logo" />
+        <a class="navbar-brand brand-logo-mini" href="../../index.html">
+          <img src="../../images/logo-mini.svg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -80,7 +66,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                  <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
@@ -94,7 +80,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                  <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
@@ -108,7 +94,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                  <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
@@ -179,7 +165,7 @@
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text">Hello, Richard V.Welsh !</span>
-              <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image">
+              <img class="img-xs rounded-circle" src="../../images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
@@ -204,7 +190,7 @@
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item"onclick="document.forms['logoutForm'].submit()">
+              <a class="dropdown-item">
                 Sign Out
               </a>
             </div>
@@ -217,21 +203,30 @@
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="user-wrapper">
-               
+                <div class="profile-image">
+                  <img src="../../images/faces/face1.jpg" alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Richard V.Welsh</p>
+                  <div>
+                    <small class="designation text-muted">Manager</small>
+                    <span class="status-indicator online"></span>
+                  </div>
+                </div>
               </div>
-              <button class="btn btn-success btn-block">New Contract
+              <button class="btn btn-success btn-block">New Project
                 <i class="mdi mdi-plus"></i>
               </button>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="../../index.html">
               <i class="menu-icon mdi mdi-television"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -239,44 +234,40 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
-              <span class="menu-title">Accounts</span>
+              <span class="menu-title">Basic UI Elements</span>
               <i class="menu-arrow"></i>
             </a>
-           
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Receipts</a>
+                  <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Invoice</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Tax</a>
+                  <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="../../pages/forms/basic_elements.html">
               <i class="menu-icon mdi mdi-backup-restore"></i>
               <span class="menu-title">Form elements</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="../../pages/charts/chartjs.html">
               <i class="menu-icon mdi mdi-chart-line"></i>
               <span class="menu-title">Charts</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="../../pages/tables/basic-table.html">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Tables</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/font-awesome.html">
+            <a class="nav-link" href="../../pages/icons/font-awesome.html">
               <i class="menu-icon mdi mdi-sticker"></i>
               <span class="menu-title">Icons</span>
             </a>
@@ -290,19 +281,19 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                  <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                  <a class="nav-link" href="../../pages/samples/login.html"> Login </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/register.html"> Register </a>
+                  <a class="nav-link" href="../../pages/samples/register.html"> Register </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+                  <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                  <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a>
                 </li>
               </ul>
             </div>
@@ -312,16 +303,168 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-         
           <div class="row">
-           <div class="col-md-6 grid-margin stretch-card">
+          <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <center><h4 class="card-title">Add New Contract</h4></center>
+                  <form class="form-sample" action ="saveContract" modelAttribute="contractForm" method="post">
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Contract Date</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="contractdate"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Customer</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="customer">
+                              <option>--Select--</option>
+                              <c:forEach var="c" items="${allcustomer}">
+                              <option>${c }</option>
+                              </c:forEach>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">TDS Payable</label>
+                          <div class="col-sm-4">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="tdsRadios" id="membershipRadios1" value="" checked> No
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="tdsRadios" id="membershipRadios2" value="option2"> Yes
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">NOC</label>
+                          <div class="col-sm-4">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> No
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-5">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Yes
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                     <div class="form-group">
+                      <label>TDS Document, if any</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="file" class="form-control file-upload-info"  placeholder="TDS Document, if any">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                   </div>
+                   <div class="col-md-6">
+                     <div class="form-group">
+                      <label>NOC Ducument, if any</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Noc Ducument, if any">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                        </span>
+                      </div>
+                    </div>
+                   </div>
+                   </div>
+                   <button type="submit" class="btn btn-success mr-2">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 d-flex align-items-stretch grid-margin">
+              <div class="row flex-grow">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Default form</h4>
+                      <p class="card-description">
+                        Basic form layout
+                      </p>
+                      <form class="forms-sample">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-success mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Horizontal Form</h4>
+                      <p class="card-description">
+                        Horizontal form layout
+                      </p>
+                      <form class="forms-sample">
+                        <div class="form-group row">
+                          <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-success mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Basic form</h4>
                   <p class="card-description">
                     Basic form elements
                   </p>
-                  <form class="forms-sample" action="">
+                  <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
                       <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
@@ -358,16 +501,65 @@
                 </div>
               </div>
             </div>
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <center><h4 class="card-title">Add Performances</h4></center>
+                  <form class="form-sample" modelAttribute="performanceForm">
+                    <p class="card-description">
+                      Contract info
+                    </p>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Date</label>
+                          <div class="col-sm-9">
+                            <input type="date" class="form-control" name="contractdate"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Show</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="showname"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Time</label>
+                          <div class="col-sm-9">
+                            <input type="time" class="form-control" name="showname"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   <div class="row">
+                      <div class="col-md-12" class="form-group">
+                      <label for="exampleTextarea1">Show Details</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="3"></textarea>
+                    </div>
+                     
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
             
           </div>
-         
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+        <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
           <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
-              <a href="" target="_blank">SRCPA</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
               <i class="mdi mdi-heart text-danger"></i>
             </span>
@@ -380,21 +572,18 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
   <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <script src="../../vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/misc.js"></script>
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
+
 </html>

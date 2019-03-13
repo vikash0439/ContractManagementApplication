@@ -316,7 +316,7 @@
             <div class="col-lg-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <center><h4 class="card-title">Services</h4></center>
+                  <center><h4 class="card-title">Venue</h4></center>
                   <div class="table-responsive">
                     <table class="table table-bordered">
                       <thead>
@@ -325,23 +325,19 @@
                             #
                           </th>
                           <th>
-                            Slot
+                            Venue Name
                           </th>
                           <th>
-                            Start Time
-                          </th>
-                          <th>
-                            End Time
+                            Details
                           </th>
                         </tr>
                       </thead>
-                      <c:forEach var="s" items="${allslot }">
+                      <c:forEach var="v" items="${allvenue }">
                       <tbody>
                         <tr>
-                          <td class="font-weight-medium">${s.slotid }</td>
-                          <td>${s.slotname }</td>
-                          <td>${s.starttime }</td>
-                          <td>${s.endtime}</td>
+                          <td class="font-weight-medium">${v.venueid }</td>
+                          <td>${v.venuename }</td>
+                          <td>${v.details }</td>
                           
                         </tr>
                         
@@ -357,21 +353,16 @@
            <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add Slot</h4>
-                  <form class="forms-sample" action="saveSlot" modelAttribute="slotForm">
+                  <h4 class="card-title">Add Venue </h4>
+                  <form class="forms-sample" action="saveVenue" modelAttribute="venueForm">
                     <div class="form-group">
                       <label for="exampleInputName1">Slot Name</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="slotname" placeholder="SLot Name">
+                      <input type="text" class="form-control" id="exampleInputName1" name="venuename" placeholder="Venue Name">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Start Time</label>
-                      <input type="time" class="form-control" id="exampleInputName1" name="starttime" placeholder="Start Time">
+                     <div class="form-group">
+                      <label for="exampleTextarea1">Deatils</label>
+                      <textarea class="form-control" id="exampleTextarea1" name="details" rows="2"></textarea>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">End Time</label>
-                      <input type="time" class="form-control" id="exampleInputName1" name="endtime" placeholder="End Time">
-                    </div>
-                    
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>
                   </form>

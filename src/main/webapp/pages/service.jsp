@@ -344,146 +344,20 @@
                           </th>
                         </tr>
                       </thead>
+                      <c:forEach var="s" items="${allservice }">
                       <tbody>
                         <tr>
-                          <td class="font-weight-medium">
-                            1
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td class="text-danger"> 53.64%
-                            <i class="mdi mdi-arrow-down"></i>
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
+                          <td class="font-weight-medium">${s.serviceid }</td>
+                          <td>${s.servicename }</td>
+                          <td>${s.saccode }</td>
+                          <td>${s.slot}</td>
+                          <td>${s.venue }</td>
+                          <td>${s.price }</td>
+                          <td>${s.unitofmeasurement }</td>
                         </tr>
-                        <tr>
-                          <td class="font-weight-medium">
-                            2
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td class="text-success"> 24.56%
-                            <i class="mdi mdi-arrow-up"></i>
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="font-weight-medium">
-                            3
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td class="text-danger"> 28.76%
-                            <i class="mdi mdi-arrow-down"></i>
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="font-weight-medium">
-                            4
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td class="text-danger"> 53.45%
-                            <i class="mdi mdi-arrow-down"></i>
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="font-weight-medium">
-                            5
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td class="text-success"> 18.32%
-                            <i class="mdi mdi-arrow-up"></i>
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="font-weight-medium">
-                            6
-                          </td>
-                          <td>
-                            Henry Tom
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 150.00
-                          </td>
-                          <td class="text-danger"> 24.67%
-                            <i class="mdi mdi-arrow-down"></i>
-                          </td>
-                          <td>
-                            June 16, 2015
-                          </td>
-                        </tr>
+                        
                       </tbody>
+                      </c:forEach>
                     </table>
                   </div>
                 </div>
@@ -500,18 +374,40 @@
                       <label for="exampleInputName1">Service Name</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="servicename" placeholder="Service Name">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">SAC Code</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="saccode" placeholder="SAC Code">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Slot</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="slot" placeholder="Slot">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">Venue</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="venue" placeholder="Venue Name">
-                    </div>
+                    <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">SAC Code</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="saccode">
+                              <option>--Select--</option>
+                              <c:forEach var="sac" items="${allsaccode}">
+                              <option>${sac }</option>
+                              </c:forEach>
+                            </select>
+                          </div>
+                        </div>
+                     <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Slot</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="slot">
+                              <option>--Select--</option>
+                              <c:forEach var="s" items="${allslot}">
+                              <option>${s }</option>
+                              </c:forEach>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Venue</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="venue">
+                              <option>--Select--</option>
+                              <c:forEach var="v" items="${allvenue}">
+                              <option>${v }</option>
+                              </c:forEach>
+                            </select>
+                          </div>
+                        </div>
+       
                     <div class="form-group">
                       <label for="exampleInputName1">Price</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="price" placeholder="Price">
