@@ -24,7 +24,20 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
 
-    
+ <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.mobile.min.css" />
+     <style>
+        
+        .k-widget.k-calendar {
+            width: 100%;
+            height: 100%;
+        }
+        .k-widget.k-calendar .k-content tbody td {
+            width: 100%;
+            height: 90px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -220,6 +233,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
+          
             <div class="nav-link">
               <button class="btn btn-success btn-block"><a style="color: white;" href="contract">New Contract
                 <i class="mdi mdi-plus"></i></a>
@@ -342,7 +356,7 @@
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Till date
                   </p>
                 </div>
               </div>
@@ -355,14 +369,14 @@
                       <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Orders</p>
+                      <p class="mb-0 text-right">Contracts</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">3455</h3>
+                        <h3 class="font-weight-medium text-right mb-0">${noofContract }</h3>
                       </div>
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
+                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Software-wise contracts
                   </p>
                 </div>
               </div>
@@ -375,14 +389,14 @@
                       <i class="mdi mdi-poll-box text-success icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Sales</p>
+                      <p class="mb-0 text-right">Invoiced</p>
                       <div class="fluid-container">
                         <h3 class="font-weight-medium text-right mb-0">5693</h3>
                       </div>
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Weekly Sales
+                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Total contract invoiced
                   </p>
                 </div>
               </div>
@@ -395,14 +409,14 @@
                       <i class="mdi mdi-account-location text-info icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Employees</p>
+                      <p class="mb-0 text-right">Customers</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">246</h3>
+                        <h3 class="font-weight-medium text-right mb-0">${noofCustomer }</h3>
                       </div>
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Product-wise sales
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Database wise customers
                   </p>
                 </div>
               </div>
@@ -414,10 +428,10 @@
               <div class="card card-weather">
                 <div class="card-body">
                   <div class="weather-date-location">
-                    <h3>Monday</h3>
+                    <h3>${day }</h3>
                     <p class="text-gray">
-                      <span class="weather-date">25 October, 2016</span>
-                      <span class="weather-location">London, UK</span>
+                      <span class="weather-date">${date}</span>
+                      <span class="weather-location">${location }</span>
                     </p>
                   </div>
                   <div class="weather-data d-flex">
@@ -546,6 +560,17 @@
               </div>
             </div>
           </div>
+         <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+          <div id="example">
+                          <div class="demo-section k-content" style="text-align: center;">
+                            <h4>All Bookings</h4>
+                            <div id="calendar"></div>
+                         </div>
+                      </div>  
+          </div></div></div></div>
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="card">
@@ -575,7 +600,7 @@
             <div class="col-lg-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Orders</h4>
+                  <h4 class="card-title">Customers Payment Pending</h4>
                   <div class="table-responsive">
                     <table class="table table-bordered">
                       <thead>
@@ -750,7 +775,7 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title mb-4">Manage Tickets</h5>
+                  <h5 class="card-title mb-4">Today Bookings</h5>
                   <div class="fluid-container">
                     <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
                       <div class="col-md-1">
@@ -919,5 +944,17 @@
   <!-- End custom js for this page-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.1.220/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+  <script>
+                $(document).ready(function() {
+                    // create Calendar from div HTML element
+                    $("#calendar").kendoCalendar({
+                        selectable: "multiple",
+                        weekNumber: true,
+                        disableDates: ["su"]
+                    });
+                });
+    </script>
 </body>
 </html>

@@ -1,5 +1,9 @@
 package com.contract.system.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +13,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.contract.system.model.Booking;
 import com.contract.system.model.Contract;
 import com.contract.system.model.Customer;
+import com.contract.system.model.Performance;
 import com.contract.system.model.Service;
 import com.contract.system.model.Slot;
 import com.contract.system.model.Tax;
@@ -30,19 +37,15 @@ import com.contract.system.validator.UserValidator;
 @Controller
 public class MainController{
 	
-    @Autowired
-    private UserService userService;    
-    @Autowired
-    private ServiceService serviceService;
+    @Autowired private UserService userService;    
+    @Autowired private ServiceService serviceService;
     @Autowired private SlotService slotService;
     @Autowired private VenueService venueService;
     @Autowired private TaxService taxService;
     @Autowired private CustomerService customerService;
     @Autowired private ContractService contractService;
-    @Autowired
-    private SecurityService securityService;
-    @Autowired
-    private UserValidator userValidator;
+    @Autowired private SecurityService securityService;
+    @Autowired private UserValidator userValidator;
     
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -76,27 +79,41 @@ public class MainController{
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
+    	Date date= new Date();
+    	model.addAttribute("day", new SimpleDateFormat("EEEE").format(date));
+    	model.addAttribute("date", new SimpleDateFormat("dd-MM-yyyy '|' hh:mm:ss a '|'  zzz").format(date));
+    	model.addAttribute("location", "Delhi, India");
+    	
+    	model.addAttribute("noofCustomer", customerService.getTotal());
+    	model.addAttribute("noofContract", contractService.getTotal());
         return "welcome";
     }
     
     /* Contract Controller */
     @RequestMapping("/contract")
     public String contract(HttpServletRequest request) {
-    	request.setAttribute("allcustomer", customerService.findName());
-    
+    	request.setAttribute("allcustomer", customerService.findName());  
+    	request.setAttribute("allservices", serviceService.findName());
         return "contract";
     }
     
-    @RequestMapping(value = "/saveContract", method = RequestMethod.GET)
-    public String saveTax( Model model, @ModelAttribute("contractForm") Contract contract) {  	
+    @RequestMapping(value = "/save-contract", method = RequestMethod.POST)
+    public String saveContract( Model model, @ModelAttribute Contract contract, @ModelAttribute List<Booking> bookings, @ModelAttribute List<Performance> performances, @RequestParam String cname) {  
+        System.out.println(cname);
+    	Customer customer = customerService.findCustomer(cname);
+    	System.out.println("Customer : " +customer);
+    	
+		contract.setCustomer(customer);
+	    contract.setBookings(bookings);
+	    contract.setPerformances(performances);
     	contractService.save(contract);
+    	
         return "contract";
     }
     
     @RequestMapping("/booking")
     public String booking(HttpServletRequest request) {
-    	request.setAttribute("allcustomer", customerService.getCustomer());
-    
+    	request.setAttribute("allcustomer", customerService.getCustomer());    
         return "booking";
     }
     

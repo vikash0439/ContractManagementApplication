@@ -24,7 +24,6 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
     
 </head>
 <body>
@@ -328,6 +327,9 @@
                             SAC Code
                           </th>
                           <th>
+                            Description
+                          </th>
+                          <th>
                             CGST
                           </th>
                           <th>
@@ -344,6 +346,7 @@
                         <tr>
                           <td class="font-weight-medium">${t.taxid }</td>
                           <td>${t.saccode}</td>
+                          <td>${t.description}</td>
                           <td>${t.sgst }</td>
                           <td>${t.cgst}</td>
                           <td>${t.igst }</td>
@@ -368,6 +371,12 @@
                       <label for="exampleInputName1">SAC Code</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="saccode" placeholder="Service Name">
                     </div>
+                    <div class="row">
+                      <div class="col-md-12" class="form-group">
+                      <label for="exampleTextarea1">Description of services</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="3" name ="description" value="${contract.performance.showdetails }"></textarea>
+                    </div>
+                    </div> <br> 
                     <div class="form-group">
                       <label for="exampleInputName1">SGST</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="sgst" placeholder="Percentage">

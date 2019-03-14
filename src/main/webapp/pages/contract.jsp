@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +22,9 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
+ <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.1.220/styles/kendo.material.mobile.min.css" />
 </head>
 
 <body>
@@ -302,14 +306,13 @@
       </nav>
       <!-- partial -->
       <div class="main-panel">
+      <form class="form-sample" action ="save-contract"  method="POST">
         <div class="content-wrapper">
           <div class="row">
           <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <center><h4 class="card-title">Add New Contract</h4></center>
-                  <form class="form-sample" action ="saveContract" modelAttribute="contractForm" method="post">
-                    
+                  <center><h4 class="card-title">Add New Contract</h4></center>                
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
@@ -323,7 +326,7 @@
                          <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Customer</label>
                           <div class="col-sm-9">
-                            <select class="form-control" name="customer">
+                            <select class="form-control" name="cname">
                               <option>--Select--</option>
                               <c:forEach var="c" items="${allcustomer}">
                               <option>${c }</option>
@@ -340,7 +343,7 @@
                           <div class="col-sm-4">
                             <div class="form-radio">
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="tdsRadios" id="membershipRadios1" value="" checked> No
+                                <input type="radio" class="form-check-input"  id="membershipRadios1" value="" checked> No
                               </label>
                             </div>
                           </div>
@@ -399,8 +402,8 @@
                     </div>
                    </div>
                    </div>
-                   <button type="submit" class="btn btn-success mr-2">Submit</button>
-                  </form>
+                   
+                 
                 </div>
               </div>
             </div>
@@ -410,48 +413,13 @@
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Default form</h4>
-                      <p class="card-description">
-                        Basic form layout
-                      </p>
-                      <form class="forms-sample">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Horizontal Form</h4>
-                      <p class="card-description">
-                        Horizontal form layout
-                      </p>
-                      <form class="forms-sample">
-                        <div class="form-group row">
-                          <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
-                          <div class="col-sm-9">
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
+                      <h4 class="card-title">Booking Dates</h4>
+                      <div id="example">
+                          <div class="demo-section k-content" style="text-align: center;">
+                            <h4>Select Dates</h4>
+                            <div id="calendar"></div>
+                         </div>
+                      </div>                   
                     </div>
                   </div>
                 </div>
@@ -460,52 +428,27 @@
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic form</h4>
-                  <p class="card-description">
-                    Basic form elements
-                  </p>
-                  <form class="forms-sample">
-                    <div class="form-group">
-                      <label for="exampleInputName1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail3">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label>File upload</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputCity1">City</label>
-                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleTextarea1">Textarea</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
-                  </form>
+                  <center><h4 class="card-title">Services</h4></center>
+                 <div class="col-md-12">
+                         <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Services</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="service">
+                              <option>--Select--</option>
+                              <c:forEach var="ser" items="${allservices}">
+                              <option>${ser }</option>
+                              </c:forEach>
+                            </select>
+                          </div>
+                        </div>
+                      </div>    
                 </div>
               </div>
             </div>
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <center><h4 class="card-title">Add Performances</h4></center>
-                  <form class="form-sample" modelAttribute="performanceForm">
+                  <center><h4 class="card-title">Add Performances</h4></center>              
                     <p class="card-description">
                       Contract info
                     </p>
@@ -514,7 +457,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Date</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control" name="contractdate"/>
+                            <input type="date" class="form-control" name="showdate"/>
                           </div>
                         </div>
                       </div>
@@ -530,7 +473,7 @@
                          <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Time</label>
                           <div class="col-sm-9">
-                            <input type="time" class="form-control" name="showname"/>
+                            <input type="time" class="form-control" name="showtime"/>
                           </div>
                         </div>
                       </div>
@@ -538,22 +481,48 @@
                    <div class="row">
                       <div class="col-md-12" class="form-group">
                       <label for="exampleTextarea1">Show Details</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="3"></textarea>
+                      <textarea class="form-control"  rows="3" name ="showdetails"></textarea>
                     </div>
-                     
+                    </div>                
+                </div>
+              </div>
+            </div>         
+          </div>
+           <center><button type="submit" class="btn btn-info btn-block">Create Contract</button></center>
+           
+        </form>
+        <br>
+         <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">General Information</h4>
+                  <p class="card-description">
+                    Use class
+                    <code>.text-primary</code>,
+                    <code>.text-secondary</code> etc. for text in theme colors
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="text-primary">.text-primary</p>
+                      <p class="text-success">.text-success</p>
+                      <p class="text-danger">.text-danger</p>
+                      <p class="text-warning">.text-warning</p>
+                      <p class="text-info">.text-info</p>
                     </div>
-                    
-                  </form>
+                    <div class="col-md-6">
+                      <p class="text-light bg-dark pl-1">.text-light</p>
+                      <p class="text-secondary">.text-secondary</p>
+                      <p class="text-dark">.text-dark</p>
+                      <p class="text-muted">.text-muted</p>
+                      <p class="text-white bg-dark pl-1">.text-white</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            
-            
-            
-            
-          </div>
         </div>
+       
+       
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
@@ -583,6 +552,25 @@
   <script src="../../js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
+<script src="https://kendo.cdn.telerik.com/2019.1.220/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+  <script>
+                $(document).ready(function() {
+                    // create Calendar from div HTML element
+                    $("#calendar").kendoCalendar({
+                        selectable: "multiple",
+                        weekNumber: true,
+                        disableDates: ["su"]
+                    });
+                });
+    </script>
+    <script>
+    function calendar_change() {
+        //Handle the change event
+        elements: Array[1] 
+        console.log()
+    }
+    </script>
   <!-- End custom js for this page-->
 </body>
 

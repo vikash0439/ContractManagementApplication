@@ -26,7 +26,7 @@
 
 <body>
 
-<div class="container">
+
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">

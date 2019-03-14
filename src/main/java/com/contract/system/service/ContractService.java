@@ -71,4 +71,9 @@ public class ContractService {
 		return contractRepository.CountContract(contractid);
 	}
 
+	public Long getTotal() {
+		// TODO Auto-generated method stub
+		return contractRepository.count();
+	}
+
 }

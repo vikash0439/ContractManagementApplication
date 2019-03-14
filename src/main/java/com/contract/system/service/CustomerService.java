@@ -58,6 +58,12 @@ public class CustomerService {
 		System.out.println(customerRepository.getMorningCustomer());
 		return customerRepository.getMorningCustomer();
 	}
+
+
+	public long getTotal() {
+		// TODO Auto-generated method stub
+		return customerRepository.count();
+	}
 	
 	
 

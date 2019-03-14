@@ -2,7 +2,6 @@ package com.contract.system.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,9 +10,10 @@ import javax.persistence.Table;
 public class Tax {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private int taxid;
 	private String saccode;
+	private String description;
 	private int igst;
 	private int sgst;
 	private int cgst;
@@ -30,6 +30,13 @@ public class Tax {
 	}
 	public void setSaccode(String saccode) {
 		this.saccode = saccode;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public int getIgst() {
 		return igst;
