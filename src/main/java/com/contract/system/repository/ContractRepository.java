@@ -20,5 +20,8 @@ public interface ContractRepository extends JpaRepository<Contract, Integer>{
 
 	@Query(value = "select COUNT(*) from contract where customerid = ?1 ;", nativeQuery = true)
 	public Long CountContract(Long contractid);
+
+	@Query(value = "select SUM(baseprice) from contract ;", nativeQuery = true)
+	Long sumTotal();
      
 }

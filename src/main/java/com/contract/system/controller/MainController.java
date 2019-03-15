@@ -2,7 +2,6 @@ package com.contract.system.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.contract.system.model.Booking;
 import com.contract.system.model.Contract;
@@ -24,8 +24,10 @@ import com.contract.system.model.Slot;
 import com.contract.system.model.Tax;
 import com.contract.system.model.User;
 import com.contract.system.model.Venue;
+import com.contract.system.service.BookingService;
 import com.contract.system.service.ContractService;
 import com.contract.system.service.CustomerService;
+import com.contract.system.service.PerformanceService;
 import com.contract.system.service.SecurityService;
 import com.contract.system.service.ServiceService;
 import com.contract.system.service.SlotService;
@@ -46,9 +48,11 @@ public class MainController{
     @Autowired private ContractService contractService;
     @Autowired private SecurityService securityService;
     @Autowired private UserValidator userValidator;
+    @Autowired private PerformanceService performanceService;
+    @Autowired private BookingService bookingService;
     
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
+    public String registration(Model model){
         model.addAttribute("userForm", new User());
         return "registration";
     }
@@ -86,6 +90,8 @@ public class MainController{
     	
     	model.addAttribute("noofCustomer", customerService.getTotal());
     	model.addAttribute("noofContract", contractService.getTotal());
+    	model.addAttribute("revenue", contractService.getSumAmount());
+    	model.addAttribute("invoicecount", null);
         return "welcome";
     }
     
@@ -97,17 +103,26 @@ public class MainController{
         return "contract";
     }
     
-    @RequestMapping(value = "/save-contract", method = RequestMethod.POST)
-    public String saveContract( Model model, @ModelAttribute Contract contract, @ModelAttribute List<Booking> bookings, @ModelAttribute List<Performance> performances, @RequestParam String cname) {  
-        System.out.println(cname);
+    @RequestMapping(value = "/save-contract", method = RequestMethod.GET)
+    public String saveContract( Model model, @ModelAttribute Contract contract, @ModelAttribute Performance performance, @ModelAttribute Booking booking, @RequestParam String cname) {  
+       
+    	System.out.println(cname);
     	Customer customer = customerService.findCustomer(cname);
     	System.out.println("Customer : " +customer);
+    	System.out.println("Performance : "+performance);
     	
-		contract.setCustomer(customer);
-	    contract.setBookings(bookings);
-	    contract.setPerformances(performances);
-    	contractService.save(contract);
+    	contract.setCustomer(customer);
     	
+    	performance.setContract(contract);
+    	performanceService.save(performance);
+    	
+    	booking.setContract(contract);
+    	bookingService.save(booking);
+    	
+		
+	  //  contract.setBookings(bookings);
+	  //   contract.setPerformances(performances);
+    	contractService.save(contract);   	
         return "contract";
     }
     
@@ -115,6 +130,13 @@ public class MainController{
     public String booking(HttpServletRequest request) {
     	request.setAttribute("allcustomer", customerService.getCustomer());    
         return "booking";
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/searchService", method = RequestMethod.POST)
+    public String searchService(HttpServletRequest request) {
+    	String s = "abcdef";
+		return s; 	            
     }
     
     /* Employee controller */
@@ -132,21 +154,16 @@ public class MainController{
         return "receipt";
     }
     
-    
-    
-    
-    
     /* Invoice Controller */
     @RequestMapping(value = "/invoice", method = RequestMethod.GET)
-    public String invoice( Model model) {
-     
+    public String invoice( Model model) {     
         return "invoice";
     }
     
     
     /* Service Controller */
     @RequestMapping(value = "/service", method = RequestMethod.GET)
-    public String service( Model model, HttpServletRequest request) {
+    public String service( Model model, HttpServletRequest request){
     	request.setAttribute("allservice", serviceService.getService()); 
     	request.setAttribute("allvenue", venueService.findVenue());
         request.setAttribute("allslot", slotService.findSlot());
@@ -174,14 +191,11 @@ public class MainController{
     	venueService.save(venue);
         return "venue";
     }
-    
-    
-    
+        
     /* Invoice Controller */
     @RequestMapping("/slot")
     public String slot(HttpServletRequest request) {
-    	request.setAttribute("allslot", slotService.getSlot());
-    
+    	request.setAttribute("allslot", slotService.getSlot());   
         return "slot";
     }
     
@@ -217,7 +231,7 @@ public class MainController{
         return "customer";
     }
     
-    @RequestMapping(value = "/saveCustomer", method = RequestMethod.GET)
+    @RequestMapping(value = "/saveCustomer", method = RequestMethod.POST)
     public String saveCustomer( Model model, @ModelAttribute("customerForm") Customer customer) {  	
     	customerService.save(customer);
         return "customer";

@@ -366,7 +366,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add Tax</h4>
-                  <form class="forms-sample" action="saveTax" modelAttribute="taxForm">
+                  <form class="forms-sample" action="saveTax" modelAttribute="taxForm" method="GET">
                     <div class="form-group">
                       <label for="exampleInputName1">SAC Code</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="saccode" placeholder="Service Name">
@@ -374,7 +374,7 @@
                     <div class="row">
                       <div class="col-md-12" class="form-group">
                       <label for="exampleTextarea1">Description of services</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="3" name ="description" value="${contract.performance.showdetails }"></textarea>
+                      <textarea class="form-control" id="exampleTextarea1" rows="3" name ="description"></textarea>
                     </div>
                     </div> <br> 
                     <div class="form-group">

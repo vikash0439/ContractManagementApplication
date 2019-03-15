@@ -76,4 +76,9 @@ public class ContractService {
 		return contractRepository.count();
 	}
 
+	public Long getSumAmount() {
+		// TODO Auto-generated method stub
+		return contractRepository.sumTotal();
+	}
+
 }

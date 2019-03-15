@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.*" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -306,7 +307,7 @@
       </nav>
       <!-- partial -->
       <div class="main-panel">
-      <form class="form-sample" action ="save-contract"  method="POST">
+      <form class="form-sample" action ="save-contract"  method="GET">
         <div class="content-wrapper">
           <div class="row">
           <div class="col-12 grid-margin">
@@ -401,9 +402,7 @@
                       </div>
                     </div>
                    </div>
-                   </div>
-                   
-                 
+                   </div>                
                 </div>
               </div>
             </div>
@@ -425,26 +424,121 @@
                 </div>
               </div>
             </div>
+            <% List dates = new ArrayList(); dates.add("15-04-2019"); dates.add("16-04-2019");%>
+            <div id="calendar"></div>
+
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <center><h4 class="card-title">Services</h4></center>
-                 <div class="col-md-12">
+                  <center><h4 class="card-title">Booking</h4></center><p> <% out.println(dates.toString());%> </p>
+                  <form>
+                        <div class="form-group row">
+                        
+                          <label class="col-sm-3 col-form-label">Selected Dates</label>
+                          <div class="col-sm-9">
+                            
+                            <p id = "output"></p>
+                          </div>
+                       
+                      </div> 
+                                  
                          <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Services</label>
                           <div class="col-sm-9">
-                            <select class="form-control" name="service">
+                            <select class="form-control" id="selectedsService" name="service" onChange = ServiceChange()>
                               <option>--Select--</option>
                               <c:forEach var="ser" items="${allservices}">
                               <option>${ser }</option>
                               </c:forEach>
                             </select>
-                          </div>
+                       
                         </div>
                       </div>    
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">SAC Code</label>
+                          <div class="col-sm-9">
+                            
+                          </div>
+                        </div>
+                     <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Slot</label>
+                          <div class="col-sm-9">
+                            
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Venue</label>
+                          <div class="col-sm-9">
+                            
+                          </div>
+                        </div>
+                        <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Unit Of measurement</label>
+                    </div>
+                   <center> <button type="submit" class="btn btn-success mr-2">Add</button>
+                    <button type="reset" class="btn btn-light">Remove</button></center>
+                    </form>
                 </div>
               </div>
             </div>
+            
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <center><h4 class="card-title">Booked Services</h4></center>
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>Booking Date </th>
+                          <th>
+                            Service Name
+                          </th>
+                          <th>
+                            SAC Code
+                          </th>
+                          <th>
+                            Slot
+                          </th>
+                          <th>
+                            Venue
+                          </th>
+                          <th>
+                            Price
+                          </th>
+                          <th>
+                            Edit
+                          </th>
+                        </tr>
+                      </thead>
+                      <c:forEach var="s" items="${allservice }">
+                      <tbody>
+                        <tr>
+                          <td class="font-weight-medium">${s.serviceid }</td>
+                          <td>${s.bookingdates }
+                          <td>${s.servicename }</td>
+                          <td>${s.saccode }</td>
+                          <td>${s.slot}</td>
+                          <td>${s.venue }</td>
+                          <td>${s.price }</td>
+                          <td>${s.unitofmeasurement }</td>
+                        </tr>
+                        
+                      </tbody>
+                      </c:forEach>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
@@ -497,26 +591,9 @@
                 <div class="card-body">
                   <h4 class="card-title">General Information</h4>
                   <p class="card-description">
-                    Use class
-                    <code>.text-primary</code>,
-                    <code>.text-secondary</code> etc. for text in theme colors
+                    1. Seletct dates from the calender to be applicable
                   </p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p class="text-primary">.text-primary</p>
-                      <p class="text-success">.text-success</p>
-                      <p class="text-danger">.text-danger</p>
-                      <p class="text-warning">.text-warning</p>
-                      <p class="text-info">.text-info</p>
-                    </div>
-                    <div class="col-md-6">
-                      <p class="text-light bg-dark pl-1">.text-light</p>
-                      <p class="text-secondary">.text-secondary</p>
-                      <p class="text-dark">.text-dark</p>
-                      <p class="text-muted">.text-muted</p>
-                      <p class="text-white bg-dark pl-1">.text-white</p>
-                    </div>
-                  </div>
+                  <p>2. TDS Amount and NOC Applicable</p>
                 </div>
               </div>
             </div>
@@ -527,8 +604,8 @@
         <!-- partial:../../partials/_footer.html -->
         <footer class="footer">
           <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+              <a href="" target="_blank">SRCPA</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
               <i class="mdi mdi-heart text-danger"></i>
             </span>
@@ -554,24 +631,46 @@
   <!-- Custom js for this page-->
 <script src="https://kendo.cdn.telerik.com/2019.1.220/js/jquery.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
-  <script>
+    <script>
                 $(document).ready(function() {
                     // create Calendar from div HTML element
                     $("#calendar").kendoCalendar({
+                    	format: "dd-MM-yyyy",
                         selectable: "multiple",
-                        weekNumber: true,
-                        disableDates: ["su"]
+                        weekNumber: true,                      
+                        change: function() {
+                            var value = this.value();
+                            console.log(value);          //value is the selected date in the calendar   
+                            document.getElementById('output').innerHTML = value;
+                        }
                     });
                 });
     </script>
-    <script>
-    function calendar_change() {
-        //Handle the change event
-        elements: Array[1] 
-        console.log()
-    }
-    </script>
-  <!-- End custom js for this page-->
+      
+      <script>
+      function ServiceChange(){
+    	  var service = document.getElementById('selectedsService').value;
+    	  console.log(service);
+    	  
+    	  $.ajax({
+  			type : "POST",
+  			contentType : "application/json",
+  			url : "searchService", 			
+  			success : function(service){
+  				console.log("SUCCESS: ", service);				
+  			},
+  			error : function(service) {
+  				console.log("ERROR: ", service);
+  				
+  			},
+  			done : function(service) {
+  				console.log("DONE");
+  			}
+  		});
+      }
+      </script>
+      
+<!-- End custom js for this page-->
 </body>
 
 </html>
