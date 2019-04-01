@@ -36,6 +36,13 @@
             height: 90px;
         }
     </style>
+    <link rel="stylesheet" href="https://fullcalendar.io/releases/core/4.0.1/main.min.css">
+<link rel=stylesheet" href="https://fullcalendar.io/releases/daygrid/4.0.1/main.min.css">
+<link rel=stylesheet" href="https://fullcalendar.io/releases/timegrid/4.0.1/main.min.css">
+<script type="text/javascript" src="https://fullcalendar.io/releases/core/4.0.1/main.min.js"></script>
+<script type="text/javascript" src="https://fullcalendar.io/releases/interaction/4.0.1/main.min.js"></script>
+<script type="text/javascript" src="https://fullcalendar.io/releases/daygrid/4.0.1/main.min.js"></script>
+<script type="text/javascript" src="https://fullcalendar.io/releases/timegrid/4.0.1/main.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -568,6 +575,7 @@
                             <div id="calendar"></div>
                          </div>
                       </div>  
+                      <div id='ccccc'></div>
           </div></div></div></div>
           <div class="row">
             <div class="col-md-12 grid-margin">
@@ -953,6 +961,6 @@
                         disableDates: ["su"]
                     });
                 });
-    </script>
+    </script>    
 </body>
 </html>

@@ -373,7 +373,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add Customer</h4>
-                  <form class="forms-sample" action="saveCustomer" modelAttribute="customerForm">
+                  <form class="forms-sample" action="saveCustomer" modelAttribute="customerForm" method="post">
                     <div class="form-group">
                       <label for="exampleInputName1">Customer Name</label>
                       <input type="text" class="form-control" id="exampleInputName1" name="customername" placeholder="Customer Name">

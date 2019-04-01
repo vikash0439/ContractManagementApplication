@@ -1,9 +1,12 @@
 package com.contract.system.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -132,9 +135,10 @@ public class MainController{
         return "booking";
     }
     
-    @ResponseBody
+    
     @RequestMapping(value = "/searchService", method = RequestMethod.POST)
-    public String searchService(HttpServletRequest request) {
+    public @ResponseBody String searchService(HttpServletRequest request, @RequestParam("service") String service) {
+    	System.out.print("Service layer : "+service);
     	String s = "abcdef";
 		return s; 	            
     }
@@ -156,7 +160,30 @@ public class MainController{
     
     /* Invoice Controller */
     @RequestMapping(value = "/invoice", method = RequestMethod.GET)
-    public String invoice( Model model) {     
+    public String invoice( Model model, HttpServletResponse response) { 
+    	
+    	List l = new ArrayList();
+
+        Slot c = new Slot();
+        c.setSlotid(1);
+        c.setStarttime("2015-11-28");
+        c.setEndtime("2015-11-29");
+        c.setSlotname("Task in Progress");
+
+        Slot d = new Slot();
+        d.setSlotid(2);
+        d.setStarttime("2013-07-26");
+        d.setEndtime("2013-08-28");
+        d.setSlotname("Task in Progress");
+
+        l.add(c);
+        l.add(d);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+      //  PrintWriter out = response.getWriter();
+       // out.write(new Gson().toJson(l));
+        
         return "invoice";
     }
     

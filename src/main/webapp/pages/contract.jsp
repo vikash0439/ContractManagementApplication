@@ -11,7 +11,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin Free Bootstrap-4 Admin Dashboard Template</title>
+  <title>Add New Contract</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
@@ -424,13 +424,13 @@
                 </div>
               </div>
             </div>
-            <% List dates = new ArrayList(); dates.add("15-04-2019"); dates.add("16-04-2019");%>
+<%--             <% List dates = new ArrayList(); dates.add("15-04-2019"); dates.add("16-04-2019");%> --%>
             <div id="calendar"></div>
-
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <center><h4 class="card-title">Booking</h4></center><p> <% out.println(dates.toString());%> </p>
+                  <center><h4 class="card-title">Booking</h4></center>
+<%--                   <p> <% out.println(dates.toString());%> </p> --%>
                   <form>
                         <div class="form-group row">
                         
@@ -632,16 +632,19 @@
 <script src="https://kendo.cdn.telerik.com/2019.1.220/js/jquery.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
     <script>
-                $(document).ready(function() {
+    var date= [];
+                $(document).ready(function(){
                     // create Calendar from div HTML element
                     $("#calendar").kendoCalendar({
                     	format: "dd-MM-yyyy",
                         selectable: "multiple",
                         weekNumber: true,                      
-                        change: function() {
+                        change: function(){
                             var value = this.value();
-                            console.log(value);          //value is the selected date in the calendar   
-                            document.getElementById('output').innerHTML = value;
+                            var d= value.getDate() + "-" + (value.getMonth() + 1) + "-" + value.getFullYear()
+                            date.push(d);
+                            console.log(date);          //value is the selected date in the calendar   
+                            document.getElementById('output').innerHTML = date;
                         }
                     });
                 });
@@ -654,8 +657,10 @@
     	  
     	  $.ajax({
   			type : "POST",
-  			contentType : "application/json",
-  			url : "searchService", 			
+  			url : "http://localhost:8080/api/searchService", 
+  			contentType: "application/json",
+            data: JSON.stringify(service),
+            dataType: 'json',
   			success : function(service){
   				console.log("SUCCESS: ", service);				
   			},
